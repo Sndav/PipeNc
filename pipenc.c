@@ -106,7 +106,6 @@ int create_named_pipe_server(const char* pipe_name, int timeout, program_options
 
 int connect_to_named_pipe(const char* pipe_name, int timeout, program_options_t* options) {
     HANDLE pipe_handle;
-    DWORD wait_result;
     
     printf("Connecting to named pipe: %s\n", pipe_name);
     
@@ -153,7 +152,6 @@ void handle_pipe_communication(HANDLE pipe_handle, program_options_t* options) {
     char buffer[BUFFER_SIZE];
     DWORD bytes_read, bytes_written;
     HANDLE stdin_handle = GetStdHandle(STD_INPUT_HANDLE);
-    HANDLE stdout_handle = GetStdHandle(STD_OUTPUT_HANDLE);
     
     printf("Communication established. Type messages (Ctrl+C to exit):\n");
     printf("=================================================\n");
